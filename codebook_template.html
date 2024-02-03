@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Book</title>
+  <style>
+    body {
+        height: 842px;
+        width: 595px;
+        /* to centre page on screen*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Codebook 2021</h1>
+  <br>
+
+  {% for variable in variables %}
+  <table bgcolor="black" width="595px" class="center">
+    <tr bgcolor="white">
+        <th width="119px">Variable</th>
+        <td colspan="2">{{ variable.variable_name }}</td>
+    </tr>
+    <tr bgcolor="white">
+        <th>Label</th>
+        <td colspan="2">{{ variable.label }}</td>
+    </tr>
+    <tr bgcolor="white">
+        <th>Question</th>
+        <td colspan="2">{{ variable.question }}</td>
+    </tr>
+    <tr bgcolor="white">
+        <th>Wave</th>
+        <td colspan="2">{{ variable.wave }}</td>
+    </tr>
+    <tr bgcolor="white">
+        <th>Year</th>
+        <td colspan="2">{{ variable.year_survey }}</td>
+    </tr>
+    <tr bgcolor="white">
+        <th>Value</th>
+        <th width="238px">Label</th>
+        <th width="238px">Wording</th>
+    </tr>
+    {% for response in variable.responses %}
+    <tr align="center" bgcolor="white">
+        <td>{{ response.value }}</td>
+        <td>{{ response.label }}</td>
+        <td>{{ response.wording }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <br>
+  {% endfor %}
+</body>
+</html>
